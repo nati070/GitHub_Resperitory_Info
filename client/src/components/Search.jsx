@@ -51,7 +51,7 @@ const Search = () => {
 
   const errorMsgSyntex = syntexErr ? (
     <DivError>
-      <IconError /> incoreect syntex , example: username\resperitory
+      <IconError /> incoreect syntex , example: username/resperitory
     </DivError>
   ) : (
     <></>

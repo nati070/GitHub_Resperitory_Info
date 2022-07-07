@@ -13,9 +13,12 @@ exports.getGithubData = async (respeitory_name) => {
     const LAST_INDEX_DATA = additionsAndDeletionData.length - 2;
     const additionsAndDeletionRecentWeek =
       additionsAndDeletionData[LAST_INDEX_DATA]; //get last week data
-    const totalAdditionsAndDeletionRecentWeek =
-      additionsAndDeletionRecentWeek[ADDITION_INDEX] +
-      additionsAndDeletionRecentWeek[DELETION_INDEX];
+  
+    // if the respertitory is new 
+    const totalAdditionsAndDeletionRecentWeek = (additionsAndDeletionRecentWeek) ? 
+      (additionsAndDeletionRecentWeek[ADDITION_INDEX] +
+      additionsAndDeletionRecentWeek[DELETION_INDEX])  : 0 ;
+      
 
     // list of all contributors
     const listAllContributorsCommitData =

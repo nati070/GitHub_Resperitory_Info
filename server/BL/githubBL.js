@@ -23,9 +23,8 @@ exports.getGithubData = async (respeitory_name) => {
     // list of all contributors
     const listAllContributorsCommitData =
       await githubDal.getListContributorCommitActivity(respeitory_name);
-
     // get list 5 contributors name and they commit activity
-    const fiveContributorsData = listAllContributorsCommitData
+    const fiveContributorsData = (listAllContributorsCommitData.length != 0) ? listAllContributorsCommitData
       .slice(0, 5)
       .map((ele) => {
         const weeks = ele["weeks"];
@@ -40,7 +39,7 @@ exports.getGithubData = async (respeitory_name) => {
           added: recentWeek["a"],
           removed: recentWeek["d"],
         };
-      });
+      }) : [];
      
     // return json with all the relevant data
 
